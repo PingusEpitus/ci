@@ -23,6 +23,5 @@ jobs:
         distribution: 'adopt'
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - run: set
-      shell: cmd
-    - run: jpackage --version
+    - run: ls
+    - run: jpackage --input target/ --name Hello --main-jar test-jpackage-1.0-SNAPSHOT.jar --main-class pistache.Main --type msi
