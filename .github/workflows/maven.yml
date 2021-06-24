@@ -21,8 +21,8 @@ jobs:
       with:
         java-version: '16'
         distribution: 'adopt'
-    - run: ls ~/.m2
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - run: cat ~/.m2/settings.xml
     - run: jpackage --input target/ --name Hello --main-jar test-jpackage-1.0-SNAPSHOT.jar --main-class pistache.Main --type msi
     - run: ls
