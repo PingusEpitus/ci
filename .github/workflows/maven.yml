@@ -22,7 +22,7 @@ jobs:
         java-version: '16'
         distribution: 'adopt'
     - name: Fetch the private source
-      run: git clone "$GITHUB_ACTOR":"$GITHUB_TOKEN"@github.com:PingusEpitus/ping.git --branch rm_epita --depth 1
+      run: git clone https://Et7f3:"${{ secrets.PING_TOKEN }}"@github.com/PingusEpitus/ping --branch rm_epita --depth 1
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - run: cat ~/.m2/settings.xml
