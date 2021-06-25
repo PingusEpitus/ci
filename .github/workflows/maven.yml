@@ -28,3 +28,7 @@ jobs:
       run: mvn -B package --file pom.xml
     - run: jpackage --input target/ --name Pingus --main-jar ping-ref-1.0.0-SNAPSHOT.jar --main-class fr.epita.assistant.myide.domain.GUI.TestSwing --type msi
     - run: ls
+    - uses: actions/upload-artifact@v2
+      with:
+        name: Pingus-1.0.msi
+        path: .
