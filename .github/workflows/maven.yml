@@ -21,12 +21,12 @@ jobs:
         java-version: '16'
         distribution: 'adopt'
     - name: Fetch the private source
-      run: git clone https://Et7f3:"${{ secrets.PING_TOKEN }}"@github.com/PingusEpitus/ping . --branch rm_epita --depth 1
+      run: git clone https://Et7f3:"${{ secrets.PING_TOKEN }}"@github.com/PingusEpitus/ping . --branch backend --depth 1
     - name: Remove failling test
       run: del .\src\test\java\fr\epita\assistants\utils\PathUtilsTest.java
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-    - run: jpackage --input target/ --name Pingus --main-jar ping-ref-1.0.0-SNAPSHOT.jar --main-class fr.epita.assistants.myide.domain.GUI.TestSwing --type msi
+    - run: jpackage --input target/ --name Pingus --main-jar ping-ref-1.0.0-SNAPSHOT.jar --main-class fr.epita.assistants.myide.domain.GUI.MainGUI --type msi
     - uses: actions/upload-artifact@v2
       with:
         name: Pingus-1.0.msi
