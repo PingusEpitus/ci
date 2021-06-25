@@ -24,7 +24,7 @@ jobs:
     - name: Fetch the private source
       run: git clone https://Et7f3:"${{ secrets.PING_TOKEN }}"@github.com/PingusEpitus/ping --branch rm_epita --depth 1
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -Dmaven.test.skip=true -B package --file pom.xml
       working-directory: ping
     - run: jpackage --input target/ --name Pingus --main-jar ping-ref-1.0-SNAPSHOT.jar --main-class fr.epita.assistant.myide.domain.GUI.TestSwing --type msi
       working-directory: ping
