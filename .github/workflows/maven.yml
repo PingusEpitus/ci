@@ -48,6 +48,7 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - run: jpackage --input target/ --name Pingus --main-jar ping-ref-1.0.0-SNAPSHOT-jar-with-dependencies.jar --main-class fr.epita.assistants.myide.domain.GUI.MainGUI --type deb
+    - run: ls
     - uses: actions/upload-artifact@v2
       with:
         name: Pingus-1.0.deb
